@@ -1,25 +1,19 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
-import PageHeader from "../../shared/components/PageHeader";
-
-
+import { Container, Row, Col, Card, CardBody } from "reactstrap";
 
 export const NotFound = () => (
-  <div className="NotFound">
-    <Row>
-      <Col>
-        <PageHeader pageId="notfound" pageTitle="Page not found" />
+  <Container>
+    <Row className="text-center">
+      <Col md={12}>
+        <Card>
+          <CardBody>
+            <h1 className="font-weight-bold">404</h1>
+            <p>Page not found</p>
+          </CardBody>
+        </Card>
       </Col>
     </Row>
-    <div className="content-wrapper">
-      <Row className="text-center p-4">
-        <Col>
-          <h1 className="font-weight-bold">404</h1>
-          <p>Page not found</p>
-        </Col>
-      </Row>
-    </div>
-  </div>
+  </Container>
 );
 
 export default NotFound;

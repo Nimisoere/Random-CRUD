@@ -16,7 +16,7 @@ const Topbar = memo(props => {
             changeMobileSidebarVisibility={changeMobileSidebarVisibility}
             changeSidebarVisibility={changeSidebarVisibility}
           />
-          <Link className="topbar__logo" to="/dashboard" />
+          <Link className="topbar__logo" to="/" />
         </div>
         <div className="topbar__right">
           <TopbarNotification />

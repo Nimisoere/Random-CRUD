@@ -156,32 +156,32 @@
   }
 
   &.btn-primary {
-    background-color: $color-isw-blue;
-    border-color: $color-isw-blue;
+    background-color: $color-blue;
+    border-color: $color-blue;
 
     &:before {
-      background-color: $color-isw-blue-hover;
+      background-color: $color-blue-hover;
     }
 
     &:hover, &:focus, &:active, &:active:focus {
-      border-color: $color-isw-blue-hover;
+      border-color: $color-blue-hover;
     }
   }
 
   &.btn-outline-primary {
-    color: $color-isw-blue;
-    border-color:$color-isw-blue;
+    color: $color-blue;
+    border-color:$color-blue;
 
     p {
-      color: $color-isw-blue;;
+      color: $color-blue;;
     }
 
     svg {
-      fill: $color-isw-blue;;
+      fill: $color-blue;;
     }
 
     &:before {
-      background-color: $color-isw-blue;
+      background-color: $color-blue;
     }
   }
 

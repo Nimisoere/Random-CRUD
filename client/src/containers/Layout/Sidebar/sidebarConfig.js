@@ -1,9 +1,5 @@
 import { GoDashboard } from "react-icons/go";
-import {
-  MdAccountBalance,
-  MdPersonAdd,
-  MdCreditCard
-} from "react-icons/md";
+import { MdDirectionsBoat } from "react-icons/md";
 
 export const menuConfig = {
   menus: [
@@ -11,38 +7,14 @@ export const menuConfig = {
       categoryBlock: true,
       title: "Dashboard",
       icon: GoDashboard,
-      path: "/dashboard",
+      path: "/",
       permissions: []
     },
     {
-      title: "User Management",
-      path: "/users",
+      title: "Shipments",
+      path: "/shipments",
       permissions: [],
-      icon: MdPersonAdd
-    },
-    {
-      title: "Card Requests",
-      icon: MdCreditCard,
-      path: "/card-requests",
-      permissions: []
-    },
-    {
-      category: true,
-      title: "Issuer Mangement",
-      icon: MdAccountBalance,
-      permissions: [],
-      menus: [
-        {
-          title: "Map Domains/Issuers",
-          path: "/domains-issuers",
-          permissions: []
-        },
-        {
-          title: "Issuer Configuration",
-          path: "/issuers/config",
-          permissions: []
-        }
-      ]
-    },
+      icon: MdDirectionsBoat
+    }
   ]
 };

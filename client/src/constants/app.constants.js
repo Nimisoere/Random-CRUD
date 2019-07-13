@@ -1,9 +1,4 @@
-import { appConfig } from "../config/config";
-
-export const portalUrl = `${appConfig.portalUrl}/home`;
-export const logoutUrl = `${appConfig.portalUrl}/logout`;
-
-export const message = {
+export const messages = {
   GENERIC_ERROR: "Something went wrong!",
   OUTDATED_DATA:
     "The data displayed below might be outdated. Click 'Refresh' to update."

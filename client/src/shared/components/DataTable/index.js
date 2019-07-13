@@ -3,18 +3,17 @@ import { Alert } from "reactstrap";
 import PropTypes from "prop-types";
 
 import TableComponent from "./Table";
-import { message } from "../../../constants/app.constants";
+import { messages } from "../../../constants/app.constants";
 import Paginator from "./Paginator";
 import { TableHeader } from "./TableHeader";
 import TableFilter from "./TableFilter";
 import { tableUtils } from "../../../utils/table.utils";
-import CustomSearch from "../../../containers/Users/UsersList/components/CustomSearch";
 
 export default class DataTable extends React.Component {
   state = {
     allData: [],
     pageData: [],
-    pageSize: 10,
+    pageSize: this.props.defaultPageSize,
     pageNumber: 1,
     hasParams: false,
     numberOfPages: null,
@@ -254,7 +253,6 @@ export default class DataTable extends React.Component {
       responsive,
       loading,
       countName,
-      customSearch,
       count,
       loadData
     } = this.props;
@@ -279,29 +277,16 @@ export default class DataTable extends React.Component {
           loadData={loadData}
         />
         {error && allData && allData.length ? (
-          <Alert color="danger">{message.OUTDATED_DATA}</Alert>
+          <Alert color="danger">{messages.OUTDATED_DATA}</Alert>
         ) : null}
 
-        {customSearch ? (
-          <CustomSearch
-            pageNumer={pageNumber}
-            initialValues={{
-              pageNumber,
-              pageSize,
-              searchKey: this.props.searchKey
-            }}
-            pageSize={pageSize}
-            onSubmit={this.customSearchFn}
-          />
-        ) : (
-          <TableFilter
-            loading={loading}
-            filterData={this.handleFilter}
-            columns={columns}
-            filterState={filterState}
-            setFilterState={this.setFilterState}
-          />
-        )}
+        <TableFilter
+          loading={loading}
+          filterData={this.handleFilter}
+          columns={columns}
+          filterState={filterState}
+          setFilterState={this.setFilterState}
+        />
 
         <TableComponent
           columns={columns}
