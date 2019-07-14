@@ -17,6 +17,8 @@ const Shipments = ({ match }) => {
         <Switch>
           <Route exact path={match.url} component={ViewShipments} />
           <Route path={`${match.url}/view/:id`} component={ViewShipment} />
+          <Route path={`${match.url}/edit/:id`} component={ViewShipment} />
+          <Route path={`${match.url}/new`} component={ViewShipment} />
           <Route component={NotFound} />
         </Switch>
       </Row>

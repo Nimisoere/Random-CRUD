@@ -83,6 +83,46 @@ export const viewShipment = id => {
   }
 };
 
+export const deleteShipment = id => {
+  return async dispatch => {
+    dispatch(request(id));
+    try {
+      const response = await shipmentsService.deleteShipment(id);
+      response && dispatch(success(response));
+      dispatch(getShipments());
+      dispatch(showAlert("success", `Deleted shipment with ID: ${id}`));
+    } catch (error) {
+      dispatch(failure(error));
+      dispatch(
+        showAlert(
+          "danger",
+          `Failed to delete shipment: ${id}`,
+          error ? error.message : messages.GENERIC_ERROR
+        )
+      );
+    }
+  };
+
+  function request(request) {
+    return {
+      type: shipmentActionConstants[`DELETE_${nameSpace}_REQUEST`],
+      request
+    };
+  }
+  function success(response) {
+    return {
+      type: shipmentActionConstants[`DELETE_${nameSpace}_SUCCESS`],
+      response
+    };
+  }
+  function failure(error) {
+    return {
+      type: shipmentActionConstants[`DELETE_${nameSpace}_FAILURE`],
+      error
+    };
+  }
+};
+
 export const postShipments = (values, id) => {
   const requestBody = createRequestBody(values);
   return async dispatch => {
@@ -98,7 +138,7 @@ export const postShipments = (values, id) => {
           response && response.responseMessage
         )
       );
-      dispatch(getShipments(1, 20));
+      dispatch(getShipments());
     } catch (error) {
       dispatch(failure(error));
       dispatch(

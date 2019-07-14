@@ -6,7 +6,8 @@ import { alert as notificationReducer } from "./containers/Notifications/reducer
 import {
   shipments,
   postShipments,
-  viewShipment
+  viewShipment,
+  deleteShipment
 } from "./containers/Shipments/reducers";
 
 export default combineReducers({
@@ -17,5 +18,6 @@ export default combineReducers({
 
   shipments,
   postShipments,
-  viewShipment
+  viewShipment,
+  deleteShipment
 });

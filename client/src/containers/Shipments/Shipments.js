@@ -2,13 +2,13 @@
 import React, { useEffect } from "react";
 import { Card, CardBody, Col, ButtonToolbar } from "reactstrap";
 import { Link } from "react-router-dom";
-import { MdModeEdit, MdPageview } from "react-icons/md";
+import { MdModeEdit, MdPageview, MdDelete } from "react-icons/md";
 import DataTable from "../../shared/components/DataTable";
 import { withRouter } from "react-router";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 import { connect } from "react-redux";
-import { getShipments } from "./actions/shipments.actions";
+import { getShipments, deleteShipment } from "./actions/shipments.actions";
 
 const ViewShipments = ({ dispatch, shipments, history, location }) => {
   function fetchShipments() {
@@ -76,6 +76,10 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
     }
   };
 
+  const deleteRow = row => {
+    dispatch(deleteShipment(row.id));
+  };
+
   const actions = [
     {
       name: "edit",
@@ -90,6 +94,13 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
       btnAction: handleAction,
       btnClass: "success",
       btnIcon: MdPageview
+    },
+    {
+      name: "delete",
+      btnText: "Delete",
+      btnAction: deleteRow,
+      btnClass: "danger",
+      btnIcon: MdDelete
     }
   ];
 
@@ -102,7 +113,7 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
             <ButtonToolbar className="products-list__btn-toolbar-top">
               <Link
                 className="btn btn-primary products-list__btn-add"
-                to="/domains-issuers/add"
+                to="/shipments/new"
               >
                 Create new shipment
               </Link>

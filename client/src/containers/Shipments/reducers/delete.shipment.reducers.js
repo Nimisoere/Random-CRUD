@@ -11,13 +11,12 @@ const initialState = {
   error: null
 };
 
-export const viewShipment = (state = initialState, action) => {
+export const deleteShipment = (state = initialState, action) => {
   switch (action.type) {
     case shipmentActionConstants[`VIEW_${nameSpace}_REQUEST`]:
       return {
         ...state,
         loading: true,
-        response: null,
         request: action.request
       };
     case shipmentActionConstants[`VIEW_${nameSpace}_SUCCESS`]:
