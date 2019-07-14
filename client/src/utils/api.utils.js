@@ -1,5 +1,3 @@
-import { appConfig } from "../config/config";
-
 const GENERIC_ERROR = "Something went wrong";
 
 class CustomError extends Error {
@@ -53,12 +51,6 @@ export const apiCall = async (
     ...customHeaders,
     "Content-type": "application/json"
   };
-
-  const { xsrfToken, xsrfTokenHeader } = appConfig;
-
-  if (xsrfToken && xsrfTokenHeader) {
-    headers[xsrfTokenHeader] = xsrfToken;
-  }
 
   const requestOptions = {
     method: requestType,
