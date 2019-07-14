@@ -282,7 +282,8 @@ export default class DataTable extends React.Component {
 
         <TableFilter
           loading={loading}
-          filterData={this.handleFilter}
+          onSubmit={this.handleFilter}
+          loadData={loadData}
           columns={columns}
           filterState={filterState}
           setFilterState={this.setFilterState}

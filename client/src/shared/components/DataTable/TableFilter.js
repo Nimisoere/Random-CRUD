@@ -44,14 +44,10 @@ class TableFilter extends Component {
       },
       () => {
         if (!this.state.filters.length) {
-          this.handleSubmit({});
+          this.props.loadData();
         }
       }
     );
-  };
-
-  handleSubmit = data => {
-    this.props.filterData(data);
   };
 
   setFilterState = data => {
@@ -83,7 +79,7 @@ class TableFilter extends Component {
           </UncontrolledDropdown>
         ) : null}
         {filters && filters.length ? (
-          <form className="form form--horizontal" onSubmit={this.handleSubmit}>
+          <form className="form form--horizontal" onSubmit={this.props.handleSubmit}>
             {filters.map((filter, index) => (
               <div className="form__form-group" key={index}>
                 <span className="form__form-group-label">{filter.name}</span>
@@ -121,7 +117,7 @@ TableFilter.propTypes = {
   loading: PropTypes.bool,
   columns: PropTypes.array.isRequired,
   filterState: PropTypes.object,
-  filterData: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   setFilterState: PropTypes.func.isRequired
 };
 
