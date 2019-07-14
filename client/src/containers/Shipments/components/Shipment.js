@@ -6,7 +6,7 @@ import { MdArrowBack } from "react-icons/md";
 const Shipment = props => {
   const { shipment, shipmentId, fetchData } = props;
   const foundShipment = shipment.response && !shipment.loading;
-console.log(shipment)
+
   return (
     <Col>
       <Card>
