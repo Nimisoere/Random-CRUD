@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { ThemeProps } from "../../shared/prop-types/ReducerProps"
 
-const MainWrapper = memo(props => {
+export const MainWrapper = memo(props => {
   const { theme, children } = props;
 
   return (
