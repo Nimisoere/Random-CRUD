@@ -139,6 +139,12 @@ export const postShipments = (values, id) => {
         )
       );
       dispatch(getShipments());
+      dispatch(resetPostShipment());
+      if (id) {
+        dispatch(viewShipment(id));
+      } else {
+        dispatch(resetViewShipment());
+      }
     } catch (error) {
       dispatch(failure(error));
       dispatch(

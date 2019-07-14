@@ -7,7 +7,7 @@ export const createRequestBody = values => {
     type: values.type,
     destination: values.destination,
     origin: values.origin,
-    services: values.origin,
+    services: values.services,
     total: values.total,
     status: values.status,
     userId: values.userId

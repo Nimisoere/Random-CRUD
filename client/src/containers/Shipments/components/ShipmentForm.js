@@ -168,7 +168,7 @@ const ShipmentForm = memo(
                                   name="type"
                                   component={renderField}
                                   type="text"
-                                  placeholder="Destination"
+                                  placeholder="Type"
                                 />
                               </div>
                             </div>
@@ -207,6 +207,15 @@ const ShipmentForm = memo(
                             </div>
                           </Col>
                         </Row>
+                      </Col>
+
+                      <Col lg="6">
+                        <Button size="sm" type="button" outline color="primary" onClick={() => null}>
+                          Add Cargo
+                        </Button>
+                        <Button size="sm" type="button" outline color="primary" onClick={() => null}>
+                          Add Service
+                        </Button>
                       </Col>
                     </Row>
 

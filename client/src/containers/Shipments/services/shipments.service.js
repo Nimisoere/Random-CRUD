@@ -16,7 +16,7 @@ function postShipments(request, id) {
   const method = id ? "PUT" : "POST";
   return apiCall(
     method,
-    id ? `${SHIPMENTS_API}/id` : SHIPMENTS_API,
+    id ? `${SHIPMENTS_API}/${id}` : SHIPMENTS_API,
     null,
     request
   );

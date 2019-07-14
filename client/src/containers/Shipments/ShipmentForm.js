@@ -12,14 +12,14 @@ const ShipmentForm = ({ dispatch, shipment, match }) => {
     const shipmentObj = hasShipment ? shipment.response : null;
     if (shipmentObj) {
       shipmentData = {
-        name: shipmentObj.firstName,
-        userId: shipmentObj.lastName,
-        type: shipmentObj.email,
-        mode: shipmentObj.mobileNo,
-        origin: shipmentObj.firstName,
-        destination: shipmentObj.lastName,
-        status: shipmentObj.email,
-        total: shipmentObj.mobileNo
+        name: shipmentObj.name,
+        userId: shipmentObj.userId,
+        type: shipmentObj.type,
+        mode: shipmentObj.mode,
+        origin: shipmentObj.origin,
+        destination: shipmentObj.destination,
+        status: shipmentObj.status,
+        total: shipmentObj.total
       };
     }
 

@@ -1,32 +1,26 @@
 {
   "shipments": [
     {
-      "id": "S1000",
-      "name": "T-shirts from Shanghai to Hamburg",
-      "cargo": [
-        {
-          "type": "Fabric",
-          "description": "1000 Blue T-shirts",
-          "volume": "2"
-        },
-        {
-          "type": "Fabric",
-          "description": "2000 Green T-shirts",
-          "volume": "3"
-        }
-      ],
+      "name": "T-shirts from Shanghai to Hamburg with love",
       "mode": "sea",
       "type": "FCL",
       "destination": "Saarbrücker Str. 38, 10405 Berlin",
       "origin": "Shanghai Port",
-      "services": [
-        {
-          "type": "customs"
-        }
-      ],
       "total": "1000",
       "status": "ACTIVE",
-      "userId": "U1000"
+      "userId": "U1000",
+      "id": "S1000"
+    },
+    {
+      "name": "To my family in the West",
+      "mode": "Air",
+      "type": "Toys",
+      "destination": "JFK",
+      "origin": "Lagos",
+      "total": "3000",
+      "status": "PENDING",
+      "userId": "67000",
+      "id": "SDY-3A-"
     }
   ]
 }
