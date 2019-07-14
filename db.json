@@ -2,25 +2,26 @@
   "shipments": [
     {
       "name": "T-shirts from Shanghai to Hamburg with love",
-      "mode": "sea",
+      "cargo": [
+        {
+          "type": "Boxes",
+          "description": "Boxes",
+          "volume": "20"
+        }
+      ],
+      "mode": "AIr",
       "type": "FCL",
       "destination": "Saarbrücker Str. 38, 10405 Berlin",
       "origin": "Shanghai Port",
+      "services": [
+        {
+          "type": "Insurance"
+        }
+      ],
       "total": "1000",
       "status": "ACTIVE",
       "userId": "U1000",
       "id": "S1000"
-    },
-    {
-      "name": "To my family in the West",
-      "mode": "Air",
-      "type": "Toys",
-      "destination": "JFK",
-      "origin": "Lagos",
-      "total": "3000",
-      "status": "PENDING",
-      "userId": "67000",
-      "id": "SDY-3A-"
     },
     {
       "name": "T-shirts from Shanghai to Hamburg with love",
