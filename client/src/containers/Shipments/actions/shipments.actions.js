@@ -167,3 +167,11 @@ export const postShipments = (values, id) => {
     };
   }
 };
+
+export const resetViewShipment = () => {
+  return { type: shipmentActionConstants[`VIEW_${nameSpace}_RESET`] };
+};
+
+export const resetPostShipment = () => {
+  return { type: shipmentActionConstants[`POST_${nameSpace}_RESET`] };
+};

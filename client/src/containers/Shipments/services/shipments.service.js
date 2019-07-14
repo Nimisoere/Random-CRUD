@@ -14,7 +14,12 @@ function getShipments() {
 
 function postShipments(request, id) {
   const method = id ? "PUT" : "POST";
-  return apiCall(method, SHIPMENTS_API, null, request);
+  return apiCall(
+    method,
+    id ? `${SHIPMENTS_API}/id` : SHIPMENTS_API,
+    null,
+    request
+  );
 }
 
 function viewShipment(id) {

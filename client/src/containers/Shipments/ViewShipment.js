@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Container, Row } from "reactstrap";
 import Shipment from "./components/Shipment";
-import { viewShipment } from "./actions/shipments.actions";
+import { viewShipment, resetViewShipment } from "./actions/shipments.actions";
 
 const ViewShipment = props => {
   const { dispatch, shipment } = props;
@@ -14,6 +14,8 @@ const ViewShipment = props => {
   useEffect(() => {
     if (props.match.params.id) {
       dispatch(viewShipment(props.match.params.id));
+    } else {
+      dispatch(resetViewShipment())
     }
   }, [dispatch, props.match.params.id]);
 

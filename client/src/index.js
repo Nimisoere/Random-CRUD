@@ -1,3 +1,13 @@
+/*Polyfills */
+import "core-js/es6/map";
+import "core-js/es6/set";
+import "raf/polyfill";
+import "core-js/fn/array/find";
+import "core-js/fn/string/ends-with";
+import "./utils/matchMedia";
+import "./utils/MutationObserver";
+/*Polyfills */
+
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";

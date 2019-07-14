@@ -38,7 +38,7 @@ export default class DataTable extends React.Component {
       );
       stateUpdate = { numberOfPages: numberOfPageState };
     }
-    if (data && data.length) {
+    if (data) {
       const page = tableUtils.createPageData(
         pageNumber,
         pageSize,

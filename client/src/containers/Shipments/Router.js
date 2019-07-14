@@ -1,10 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Container, Row } from "reactstrap";
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom";
 import PageHeader from "../../shared/components/PageHeader";
-import NotFound from "../NotFound/404";
-import ViewShipments from "./Shipments";
-import ViewShipment from "./ViewShipment";
+import Loading from "../../shared/components/Loading";
+
+const NotFound = lazy(() => import("../NotFound/404"));
+const ViewShipments = lazy(() => import("./Shipments"));
+const ViewShipment = lazy(() => import("./ViewShipment"));
+const ShipmentForm = lazy(() => import("./ShipmentForm"));
 
 const Shipments = ({ match }) => {
   return (
@@ -14,13 +17,15 @@ const Shipments = ({ match }) => {
         subheader="Check your shipments at a glance"
       />
       <Row>
-        <Switch>
-          <Route exact path={match.url} component={ViewShipments} />
-          <Route path={`${match.url}/view/:id`} component={ViewShipment} />
-          <Route path={`${match.url}/edit/:id`} component={ViewShipment} />
-          <Route path={`${match.url}/new`} component={ViewShipment} />
-          <Route component={NotFound} />
-        </Switch>
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            <Route exact path={match.url} component={ViewShipments} />
+            <Route path={`${match.url}/view/:id`} component={ViewShipment} />
+            <Route path={`${match.url}/edit/:id`} component={ShipmentForm} />
+            <Route path={`${match.url}/new`} component={ShipmentForm} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
       </Row>
     </Container>
   );

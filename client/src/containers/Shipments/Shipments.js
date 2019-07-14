@@ -25,7 +25,6 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
     {
       accessor: "id",
       name: "Shipment Id",
-      width: 80,
       filterable: true
     },
     {
@@ -38,10 +37,6 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
       name: "Name",
       sortable: true
     },
-    /*     {
-      accessor: "cargo",
-      name: "Cargo"
-    }, */
     {
       accessor: "mode",
       name: "Mode",
@@ -53,14 +48,20 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
       sortable: true
     },
     {
+      accessor: "origin",
+      name: "Origin",
+      sortable: true
+    },
+    {
       accessor: "destination",
       name: "Destination",
       sortable: true
     },
-    /*  {
-      accessor: "services",
-      name: "Services"
-    }, */
+    {
+      accessor: "status",
+      name: "Status",
+      sortable: true
+    },
     {
       accessor: "total",
       name: "Total",
@@ -122,7 +123,11 @@ const ViewShipments = ({ dispatch, shipments, history, location }) => {
           <DataTable
             columns={columns}
             loading={shipments && shipments.loading}
-            data={shipments ? shipments.response : []}
+            data={
+              shipments && shipments.response && shipments.response.length
+                ? shipments.response
+                : []
+            }
             count={count}
             countName="shipments"
             defaultPageSize={20}
