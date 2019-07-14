@@ -28,6 +28,46 @@ const validate = values => {
     errors.destination = "Destination field shouldn’t be empty";
   }
 
+  if (!values.cargo || !values.cargo.length) {
+    errors.cargo = { _error: "At least one cargo must be entered" };
+  } else {
+    const cargoArrayErrors = [];
+    values.cargo.forEach((cargo, cargoIndex) => {
+      const cargoErrors = {};
+      if (!cargo || !cargo.type) {
+        cargoErrors.type = "Required";
+        cargoArrayErrors[cargoIndex] = cargoErrors;
+      }
+      if (!cargo || !cargo.description) {
+        cargoErrors.description = "Required";
+        cargoArrayErrors[cargoIndex] = cargoErrors;
+      }
+      if (!cargo || !cargo.volume) {
+        cargoErrors.volume = "Required";
+        cargoArrayErrors[cargoIndex] = cargoErrors;
+      }
+    });
+    if (cargoArrayErrors.length) {
+      errors.cargo = cargoArrayErrors;
+    }
+  }
+
+  if (!values.services || !values.services.length) {
+    errors.services = { _error: "At least one service must be entered" };
+  } else {
+    const servicesArrayErrors = [];
+    values.services.forEach((service, serviceIndex) => {
+      const serviceErrors = {};
+      if (!service || !service.type) {
+        serviceErrors.type = "Required";
+        servicesArrayErrors[serviceIndex] = serviceErrors;
+      }
+    });
+    if (servicesArrayErrors.length) {
+      errors.services = servicesArrayErrors;
+    }
+  }
+
   return errors;
 };
 

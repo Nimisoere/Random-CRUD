@@ -8,7 +8,7 @@ import {
   ButtonToolbar,
   Spinner
 } from "reactstrap";
-import { Field, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { MdArrowBack } from "react-icons/md";
@@ -17,6 +17,8 @@ import { renderField } from "../../../utils/renderfield";
 import validate from "./validate";
 
 import { resetPostShipment } from "../actions/shipments.actions";
+import renderServiceFields from "./renderServicesFields";
+import renderCargoFields from "./renderCargoFields";
 
 const ShipmentForm = memo(
   ({
@@ -210,12 +212,23 @@ const ShipmentForm = memo(
                       </Col>
 
                       <Col lg="6">
-                        <Button size="sm" type="button" outline color="primary" onClick={() => null}>
-                          Add Cargo
-                        </Button>
-                        <Button size="sm" type="button" outline color="primary" onClick={() => null}>
-                          Add Service
-                        </Button>
+                        <Card className="shadow-sm mb-4">
+                          <CardBody>
+                            <FieldArray
+                              name="cargo"
+                              component={renderCargoFields}
+                            />
+                          </CardBody>
+                        </Card>
+
+                        <Card className="shadow-sm">
+                          <CardBody>
+                            <FieldArray
+                              name="services"
+                              component={renderServiceFields}
+                            />
+                          </CardBody>
+                        </Card>
                       </Col>
                     </Row>
 

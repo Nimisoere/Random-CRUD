@@ -19,7 +19,9 @@ const ShipmentForm = ({ dispatch, shipment, match }) => {
         origin: shipmentObj.origin,
         destination: shipmentObj.destination,
         status: shipmentObj.status,
-        total: shipmentObj.total
+        total: shipmentObj.total,
+        cargo: shipmentObj.cargo,
+        services: shipmentObj.services
       };
     }
 
