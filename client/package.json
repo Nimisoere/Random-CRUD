@@ -30,8 +30,10 @@
     "smooth-scrollbar": "^8.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env REACT_APP_STAGE=dev react-scripts start",
+    "start:prod": "cross-env REACT_APP_STAGE=production react-scripts start",
+    "build": "cross-env REACT_APP_STAGE=dev react-scripts build",
+    "build:prod": "cross-env REACT_APP_STAGE=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
