@@ -17,7 +17,6 @@ export const shipments = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        request: action.request
       };
     case shipmentActionConstants[`GET_${nameSpace}_SUCCESS`]:
       return {

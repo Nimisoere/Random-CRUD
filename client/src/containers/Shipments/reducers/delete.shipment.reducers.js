@@ -13,13 +13,13 @@ const initialState = {
 
 export const deleteShipment = (state = initialState, action) => {
   switch (action.type) {
-    case shipmentActionConstants[`VIEW_${nameSpace}_REQUEST`]:
+    case shipmentActionConstants[`DELETE_${nameSpace}_REQUEST`]:
       return {
         ...state,
         loading: true,
         request: action.request
       };
-    case shipmentActionConstants[`VIEW_${nameSpace}_SUCCESS`]:
+    case shipmentActionConstants[`DELETE_${nameSpace}_SUCCESS`]:
       return {
         ...state,
         loading: false,
@@ -27,7 +27,7 @@ export const deleteShipment = (state = initialState, action) => {
         response: action.response,
         error: null
       };
-    case shipmentActionConstants[`VIEW_${nameSpace}_FAILURE`]:
+    case shipmentActionConstants[`DELETE_${nameSpace}_FAILURE`]:
       return {
         ...state,
         loading: false,
@@ -35,7 +35,7 @@ export const deleteShipment = (state = initialState, action) => {
         success: false,
         error: action.error
       };
-    case shipmentActionConstants[`VIEW_${nameSpace}_RESET`]:
+    case shipmentActionConstants[`DELETE_${nameSpace}_RESET`]:
       return {
         ...state,
         ...initialState

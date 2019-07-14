@@ -157,8 +157,8 @@ export const postShipments = (values, id) => {
     }
   };
 
-  function request() {
-    return { type: shipmentActionConstants[`POST_${nameSpace}_REQUEST`] };
+  function request(request) {
+    return { type: shipmentActionConstants[`POST_${nameSpace}_REQUEST`], request };
   }
   function success(response) {
     return {
