@@ -1,23 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Row } from "reactstrap";
-import { Route, Switch } from "react-router-dom";
-
-import { connect } from "react-redux";
-import { getShipments } from "./actions/shipments.actions";
-
+import { Route, Switch } from "react-router-dom"
 import PageHeader from "../../shared/components/PageHeader";
 import NotFound from "../NotFound/404";
 import ViewShipments from "./Shipments";
+import ViewShipment from "./ViewShipment";
 
-const Shipments = ({ match, dispatch, shipments }) => {
-  function fetchShipments() {
-    dispatch(getShipments());
-  }
-
-  useEffect(() => {
-    dispatch(getShipments());
-  }, [dispatch]);
-
+const Shipments = ({ match }) => {
   return (
     <Container>
       <PageHeader
@@ -26,13 +15,8 @@ const Shipments = ({ match, dispatch, shipments }) => {
       />
       <Row>
         <Switch>
-          <Route
-            exact
-            path={match.url}
-            render={() => (
-              <ViewShipments dataState={shipments} fetchData={fetchShipments} />
-            )}
-          />
+          <Route exact path={match.url} component={ViewShipments} />
+          <Route path={`${match.url}/view/:id`} component={ViewShipment} />
           <Route component={NotFound} />
         </Switch>
       </Row>
@@ -40,6 +24,4 @@ const Shipments = ({ match, dispatch, shipments }) => {
   );
 };
 
-export default connect(state => ({
-  shipments: state.shipments
-}))(Shipments);
+export default Shipments;

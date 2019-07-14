@@ -31,6 +31,7 @@ export const viewShipment = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        response: null,
         success: false,
         error: action.error
       };
